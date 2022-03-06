@@ -1,0 +1,23 @@
+$primaryColor: #1abc9c;
+.all {
+  font-weight: 700;
+}
+.logo {
+  @extend .all;
+  font-size: 28px;
+}
+li a {
+  @extend .all;
+  font-size: 20px;
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+  &:hover {
+    color: #0c2219 !important;
+  }
+}
+
+.link-active {
+  background-color: $primaryColor;
+  border: white solid 2px;
+  border-radius: 15%;
+}

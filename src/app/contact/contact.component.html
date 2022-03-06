@@ -1,0 +1,56 @@
+<div class="my-5">
+  <div class=" d-flex flex-column align-items-center">
+    <h1 class="mt-5">CONTACT</h1>
+    <div class="w-25 d-flex justify-content-around align-items-center ">
+      <div class="line"></div>
+      <i class="fa-solid fa-star fa-2x"></i>
+      <div class="line"></div>
+    </div>
+  </div>
+  <div class="container my-4">
+    <div class="row">
+      <form class="col-lg-6 offset-lg-3" [formGroup]="SendMessage" (ngSubmit)="send(SendMessage)">
+        <div class="mb-3">
+          <label for="exampleInputName1" class="form-label text-success" *ngIf="SendMessage.controls['name'].value">Name</label>
+          <input type="text" class="form-control" id="exampleInputName1" placeholder="Name" formControlName="name">
+          <p class="text-danger"
+            *ngIf="SendMessage.controls['name'].errors?.['required'] && SendMessage.controls['name'].touched">.name is
+            required</p>
+          <p class="text-danger" *ngIf="SendMessage.controls['name'].errors?.['minlength'] && SendMessage.controls['name'].touched" >.name min char equal 3 char
+          </p>
+          <p class="text-danger" *ngIf="SendMessage.controls['name'].errors?.['maxlength'] && SendMessage.controls['name'].touched">.name max char equal 10 char
+          </p>
+        </div>
+        <hr>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label text-success"  *ngIf="SendMessage.controls['email'].value">Email</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email" formControlName="email">
+          <p class="text-danger" *ngIf="SendMessage.controls['email'].errors?.['required'] && SendMessage.controls['email'].touched">.email is required</p>
+          <p class="text-danger" *ngIf="SendMessage.controls['email'].errors?.['email'] && SendMessage.controls['email'].touched">.Not a valid email address</p>
+        </div>
+        <hr>
+        <div class="mb-3">
+          <label for="exampleInputPhone1" class="form-label text-success"  *ngIf="SendMessage.controls['phone_number'].value">Phone</label>
+          <input  class="form-control" id="exampleInputPhone1" placeholder="Phone Number"
+            formControlName="phone_number">
+            <p class="text-danger" *ngIf="SendMessage.controls['phone_number'].errors?.['required'] && SendMessage.controls['phone_number'].touched">.phone number is required</p>
+            <p class="text-danger" *ngIf="SendMessage.controls['phone_number'].errors?.['pattern'] && SendMessage.controls['phone_number'].touched">.enter correct format of phone number</p>
+        </div>
+        <hr>
+        <label for="floatingTextarea2" class="text-success" *ngIf="SendMessage.controls['message'].value">Message</label>
+        <div>
+
+          <textarea class="form-control" placeholder="Message" id="floatingTextarea2" style="height: 120px"
+            formControlName="message"></textarea>
+            <p class="text-danger" *ngIf="SendMessage.controls['message'].errors?.['required'] && SendMessage.controls['message'].touched">.message is required</p>
+            <p class="text-danger" *ngIf="SendMessage.controls['message'].errors?.['maxlength'] && SendMessage.controls['message'].touched">.max length of message is 120 char</p>
+            <p class="text-danger" *ngIf="SendMessage.controls['message'].errors?.['minlength'] && SendMessage.controls['message'].touched">.min length of message is 10 char</p>
+        </div>
+        <hr>
+        <button type="submit" class="btn btn-lg btn-success" [disabled]="!SendMessage.valid">Send</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<app-information></app-information>

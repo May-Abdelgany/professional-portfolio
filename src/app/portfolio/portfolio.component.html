@@ -1,0 +1,54 @@
+<div class="position-relative body" (click)="exit($event)">
+  <div class=" d-flex flex-column align-items-center close">
+    <h1 class="mt-5">PORTFOLIO</h1>
+    <div class="w-25 d-flex justify-content-around align-items-center mb-5">
+      <div class="line"></div>
+      <i class="fa-solid fa-star fa-2x star"></i>
+      <div class="line"></div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4" *ngFor="let image of imageArray;let i=index">
+        <div class="px-5 py-4">
+          <div class="position-relative parent" (click)="data(i)">
+            <img src="../../assets/images/{{image}}" class="img-fluid">
+            <div
+              class="position-absolute w-100 h-100 top-0 caption d-flex justify-content-center align-items-center opacity-0">
+              <i class="fa-solid fa-plus text-white fa-6x"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="position-absolute w-75 bg-white data d-none">
+    <i class="fa-solid fa-xmark float-end p-4  fa-2x exit" (click)="close()"></i>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+          <h2 class="mt-3 text-center">{{caption}}</h2>
+          <div class="w-25 d-flex justify-content-around align-items-center mb-5  m-auto">
+            <div class="line"></div>
+            <i class="fa-solid fa-star fa-2x"></i>
+            <div class="line"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 offset-lg-3">
+            <img src="../../assets/images/{{path}}" class="img-fluid">
+            <p class="text-center my-5">{{description}}</p>
+          </div>
+        </div>
+      </div>
+      <button class="btn mb-3 d-block m-auto">
+        <div class="d-flex flex-row align-items-center" (click)="close()">
+          <i class="fa-solid fa-xmark">&nbsp;</i>
+          close window
+        </div>
+      </button>
+  </div>
+</div>
